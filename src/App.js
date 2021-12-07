@@ -26,7 +26,6 @@ function App() {
           </Routes>
         </div>
 
-        <h1>Let's build gmail</h1>
       </div>
     </Router>
 

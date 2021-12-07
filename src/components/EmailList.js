@@ -12,6 +12,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import InboxIcon from '@material-ui/icons/Inbox';
 import PeopleIcon from '@material-ui/icons/People';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
+import EmailRow from './EmailRow';
 
 export default function EmailList() {
     return (
@@ -51,6 +52,20 @@ export default function EmailList() {
                 <Section Icon={PeopleIcon} title='Social' color='#1A73E8' />
                 <Section Icon={LocalOfferIcon} title='Promotions' color='green' />
 
+            </div>
+            <div className="emailList_list">
+                <EmailRow
+                    title="Twitch"
+                    subject="Hey fellow streamer!"
+                    description="This is a test"
+                    time="10pm"
+                />
+                <EmailRow
+                    title="Twitch"
+                    subject="Hey fellow streamer!"
+                    description="This is a test making this longer so the ellipsis effect can be seen on the screen"
+                    time="10pm"
+                />
             </div>
         </div>
     );
