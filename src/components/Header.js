@@ -1,12 +1,11 @@
 import React from 'react';
-import './Header.css';
+import '../styles/Header.css';
 import AppsIcon from '@material-ui/icons/Apps';
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import SearchIcon from '@material-ui/icons/Search';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { Avatar, IconButton } from '@material-ui/core';
-import { ArrowDropDownCircleOutlined } from '@material-ui/icons';
 
 function Header() {
     return (
