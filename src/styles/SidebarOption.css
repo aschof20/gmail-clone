@@ -23,6 +23,7 @@
 .sidebarOptions > p{
     display: none;
     font-weight: 300;
+    margin-right: 10px;
 }
 
 .sidebarOptions:hover,
