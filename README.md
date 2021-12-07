@@ -48,3 +48,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 1. Icons: 
 `npm install @material-ui/core` [CORE DOCS: `https://mui.com/`]
 `npm install @material-ui/icons` [ICONS DOCS: `https://mui.com/components/icons/#main-content`]
+
+2. React-router
+`npm install react-router-dom`[DOCS: `https://github.com/remix-run/react-router`]
