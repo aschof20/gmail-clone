@@ -51,3 +51,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 2. React-router
 `npm install react-router-dom`[DOCS: `https://github.com/remix-run/react-router`]
+
+3. React-hook-form
+`npm install react-hook-form` [DOCS: `https://react-hook-form.com/get-started`]

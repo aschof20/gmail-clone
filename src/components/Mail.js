@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/Mail.css';
 import { useNavigate } from 'react-router-dom';
-import { Checkbox, IconButton } from '@material-ui/core';
+import { IconButton } from '@material-ui/core';
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import MoveToInboxIcon from "@material-ui/icons/MoveToInbox";
 import ErrorIcon from '@material-ui/icons/Error';

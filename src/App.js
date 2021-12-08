@@ -7,9 +7,9 @@ import EmailList from './components/EmailList';
 import {
   BrowserRouter as Router,
   Route,
-  Routes,
-  Link
+  Routes
 } from "react-router-dom";
+import SendMail from './components/SendMail';
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
             </Route>
           </Routes>
         </div>
-
+        <SendMail />
       </div>
     </Router>
 
