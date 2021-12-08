@@ -6,13 +6,25 @@ import { useForm } from "react-hook-form";
 import WarningIcon from '@material-ui/icons/WarningRounded';
 import { useDispatch } from 'react-redux';
 import { closeSendMessage } from '../features/mailSlice';
+import firebase from "firebase/compat/app";
+import { db } from "../firebase";
+
 
 function SendMail() {
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
+    // Function to submit/post email details to the database.
     const onSubmit = (formData) => {
         console.log(formData);
+        db.collection('emails').add({
+            to: formData.to,
+            subject: formData.subject,
+            message: formData.message,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        });
+        // Close form once email added to the database.
+        dispatch(closeSendMessage());
     };
 
     const dispatch = useDispatch();
