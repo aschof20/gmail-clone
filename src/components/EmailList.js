@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/EmailList.css';
 import Section from '../components/Section';
 import { Checkbox, IconButton } from '@material-ui/core';
@@ -13,8 +13,28 @@ import InboxIcon from '@material-ui/icons/Inbox';
 import PeopleIcon from '@material-ui/icons/People';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import EmailRow from './EmailRow';
+import { db } from '../firebase';
 
 export default function EmailList() {
+    // Create state to set email array from the database.
+    const [emails, setEmails] = useState([]);
+
+    // useEffect hook to map the database emails to the state. 
+    // Render when loads and rerender when dependencies updated e.g.[emails] dependency
+    useEffect(() => {
+        db.collection('emails')
+            .orderBy('timestamp', 'desc')
+            .onSnapshot(
+                snapshot =>
+                    setEmails(
+                        snapshot.docs.map(doc => ({
+                            id: doc.id,
+                            data: doc.data()
+                        }))
+                    )
+            );
+    }, []);
+
     return (
         <div className="emailList">
             <div className="emailList_settings">
@@ -54,18 +74,16 @@ export default function EmailList() {
 
             </div>
             <div className="emailList_list">
-                <EmailRow
-                    title="Twitch"
-                    subject="Hey fellow streamer!"
-                    description="This is a test"
-                    time="10pm"
-                />
-                <EmailRow
-                    title="Twitch"
-                    subject="Hey fellow streamer!"
-                    description="This is a test making this longer so the ellipsis effect can be seen on the screen"
-                    time="10pm"
-                />
+                {emails.map(({ id, data }) => (
+                    <EmailRow
+                        key={id}
+                        id={id}
+                        title={data.to}
+                        subject={data.subject}
+                        description={data.message}
+                        time={new Date(data.timestamp?.seconds * 1000).toUTCString()}
+                    />
+                ))}
             </div>
         </div>
     );
