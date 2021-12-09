@@ -77,7 +77,7 @@ function Mail({ message }) {
                     <h2>{selectedMail?.subject}</h2>
                     <LabelImportantIcon className="mail_important" />
                     <p>{selectedMail?.title}</p>
-                    <p className="mail_time">{selectedMail?.timestamp}</p>
+                    <p className="mail_time">{selectedMail?.time}</p>
 
                 </div>
 
